@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports: [ 
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
