@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {NgxsModule} from '@ngxs/store';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './Login/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginComponent } from './Login/login/login.component';
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
