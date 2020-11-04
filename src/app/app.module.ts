@@ -5,13 +5,15 @@ import {AppState} from './app.state';
 import { AppComponent } from './app.component';
 import {NgxsModule} from '@ngxs/store';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './Login/login/login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
-  imports: [ 
+  imports: [
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
