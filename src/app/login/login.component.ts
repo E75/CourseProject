@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RestApiService} from '../../shared/rest-api/rest-api.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   password = '';
   username = '';
 
-  constructor() {}
+  constructor(private apiService: RestApiService) {}
 
   ngOnInit(): void {
     this.password = 'test';
@@ -18,6 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginClick() {
-     alert(this.password + '--' + this.username);
+     this.apiService.Login(this.username, this.password);
   }
 }
