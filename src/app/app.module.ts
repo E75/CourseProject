@@ -27,7 +27,7 @@ const routes: Routes = [
     NavigationBarComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     NgxsModule.forRoot([AppState], {
       developmentMode: !environment.production
     }),
