@@ -7,15 +7,18 @@
     <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
       <a class="nav-link" [routerLink]="['/login']">Login</a>
     </li>
-    <li ngbDropdown class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-      <a href (click)="false" class="nav-link" ngbDropdownToggle>Dropdown</a>
-      <div ngbDropdownMenu>
-        <button ngbDropdownItem>Action</button>
-        <button ngbDropdownItem>Another action</button>
-        <button ngbDropdownItem>Something else here</button>
-        <div class="dropdown-divider"></div>
-        <button ngbDropdownItem>Separated link</button>
-      </div>
-    </li>
+  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+    <a class="nav-link" [routerLink]="['/user']">User</a>
+  </li>
+<!--    <li ngbDropdown class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">-->
+<!--      <a href (click)="false" class="nav-link" ngbDropdownToggle>Dropdown</a>-->
+<!--      <div ngbDropdownMenu>-->
+<!--        <button ngbDropdownItem>Action</button>-->
+<!--        <button ngbDropdownItem>Another action</button>-->
+<!--        <button ngbDropdownItem>Something else here</button>-->
+<!--        <div class="dropdown-divider"></div>-->
+<!--        <button ngbDropdownItem>Separated link</button>-->
+<!--      </div>-->
+<!--    </li>-->
   </ul>
-</nav>  
+</nav>

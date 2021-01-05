@@ -12,11 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'user', component: UserComponent }
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    UserComponent
   ],
   imports: [
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
