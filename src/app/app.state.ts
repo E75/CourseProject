@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Action, Selector, State} from '@ngxs/store';
-import {AddUser} from './user/user.action';
-import {mergeMap, tap} from 'rxjs/operators';
+import {AddUser, GetUsers} from './user/user.action';
 import {StateContext} from '@ngxs/store/src/symbols';
+import userDemoData from './user/users.mock';
 import {User} from './user/user.model';
 
 export interface AppStateModel {
@@ -21,15 +21,20 @@ export interface AppStateModel {
 @Injectable()
 export class AppState {
   @Selector()
-  static users(state: AppStateModel) {return state.users; }
+  static users(state: AppStateModel): any[] {return state.users; }
 
   constructor(
   ) {}
   @Action(AddUser)
-  addUser(ctx: StateContext<AppStateModel>, { user }: AddUser) {
+  addUser(ctx: StateContext<AppStateModel>, { user }: AddUser): void {
       const existingUsers = ctx.getState().users;
       ctx.patchState({
-        users: [existingUsers, user]
+        users: [...existingUsers, user]
       });
+  }
+
+  @Action(GetUsers)
+  getUsers(ctx: StateContext<AppStateModel>): User[] {
+    return userDemoData;
   }
 }

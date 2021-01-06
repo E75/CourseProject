@@ -9,11 +9,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of user$ | async">
       <td>{{ user.id }}</td>
       <td>{{ user.username }}</td>
       <td>{{ user.email }}</td>
     </tr>
     </tbody>
   </table>
+  <div>
+    <label>userName</label>
+    <input type="text" [(ngModel)]="userName"/>
+    <label>email</label>
+    <input type="text" [(ngModel)]="email"/>
+    <button class="btn btn-primary" (click)="addUser()">Add</button>
+  </div>
 </div>
