@@ -21,15 +21,15 @@ export interface AppStateModel {
 @Injectable()
 export class AppState {
   @Selector()
-  static users(state: AppStateModel) {
-    return state.users;
-  }
+  static users(state: AppStateModel) {return state.users; }
 
+  constructor(
+  ) {}
   @Action(AddUser)
-  public AddUser(ctx: StateContext<AppStateModel>, { user}: AddUser) {
+  addUser(ctx: StateContext<AppStateModel>, { user }: AddUser) {
       const existingUsers = ctx.getState().users;
       ctx.patchState({
-        users: [...user, existingUsers]
+        users: [existingUsers, user]
       });
   }
 }

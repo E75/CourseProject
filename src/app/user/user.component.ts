@@ -4,6 +4,7 @@ import * as userDemoData from './users.json';
 import {Select, Store} from '@ngxs/store';
 import {AppState} from '../app.state';
 import {Observable} from 'rxjs';
+import {AddUser} from './user.action';
 
 @Component({
   selector: 'app-user',
@@ -19,6 +20,8 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.users);
     const user = new User(1, 'test', 'testtest', 'test@test.com');
-    this.store.dispatch(user);
+    this.store.dispatch(new AddUser(user));
+
+    this.user$.subscribe(users => console.log(users));
   }
 }
