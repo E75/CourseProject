@@ -5,6 +5,7 @@ import {Select, Store} from '@ngxs/store';
 import {AppState} from '../app.state';
 import {Observable} from 'rxjs';
 import {AddUser, EditUser, GetUsers, RemoveUser} from './user.action';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,8 @@ export class UserComponent implements OnInit {
   @Select(AppState.users) user$: Observable<User[]>;
   userName = '';
   email = '';
-  constructor(private store: Store) {
+
+  constructor(private store: Store, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,9 +40,7 @@ export class UserComponent implements OnInit {
   }
 
   editUser(user: User) {
-    user.username = this.userName;
-    user.email = this.email;
-    console.log(user);
-    this.store.dispatch(new EditUser(user));
+    this.router.navigate(['/editUser', user.id]);
+    this.store.dispatch(new EditUser({...user, username: this.userName, email: this.email}));
   }
 }

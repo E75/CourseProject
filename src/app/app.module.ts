@@ -13,12 +13,15 @@ import { LoginComponent } from './login/login.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserComponent } from './user/user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'user', component: UserComponent }
+  { path: '', redirectTo: '/user', pathMatch: 'full'},
+  { path: 'user', component: UserComponent },
+  { path: 'editUser/:userId', component: EditUserComponent }
+  // { path: 'home', component: HomeComponent },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'user', component: UserComponent }
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     NavigationBarComponent,
-    UserComponent
+    UserComponent,
+    EditUserComponent
   ],
   imports: [
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
